@@ -67,6 +67,7 @@ export default function SignupPage() {
               className={styles.button}
               style={{ backgroundColor: "#f57c00" }}
             >
+              🔄 Change Account
             </button>
           </>
         )}

@@ -1,17 +1,14 @@
-const { Wallet } = require("ethers");
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
-    {
-        Wallet: {type: string, required: true,unique: true},
-        email: {type: string, required: true },
-        role: {
-            type: string,
-            enum: ["user", "authority"],
-            require: true
-        }
+const userSchema = new mongoose.Schema({
+  wallet: { type: String, required: true, unique: true },
+  email: { type: String, required: true },
+  role: {
+    type: String,
+    enum: ["user", "authority"],
+    required: true
+  }
+});
 
-    }
-)
+module.exports = mongoose.model("User", userSchema);
 
-module.exports = mongoose.model("user",UserSchema);
