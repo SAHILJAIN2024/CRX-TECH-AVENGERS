@@ -1,12 +1,13 @@
-const { Wallet } = require("ethers");
-const mongoose = require("mongoose");
+// models/Profile.js
+const mongoose = require('mongoose');
 
 const ProfileSchema = new mongoose.Schema({
- wallet: { type: String, required: true, unique: true },   
-  name: {type: String, require: true },
-    email: {type: String, require: true },
-    Company: {type: String, require: true },
-    Post: {type: String, require: true }
-})
+  wallet: { type: String, required: true, unique: true },
+  name: String,
+  email: String,
+  organization: String,
+  country: String,
+  specialization: String
+});
 
-module.exports = mongoose.model("profile", ProfileSchema);
+module.exports = mongoose.models.Profile || mongoose.model('Profile', ProfileSchema);

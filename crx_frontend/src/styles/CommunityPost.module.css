@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+:root {
+  --neon-blue: #00bfff;
+  --neon-green: #00ffaa;
+  --neon-red: #ff3c3c;
+  --bg-dark: #0b0c10;
+  --text-light: #e0f7ff;
+  --glow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+.postCard {
+  background-color: #111;
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  color: var(--text-light);
+  font-family: 'Orbitron', sans-serif;
+  max-width: 600px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.postCard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px var(--neon-blue), 0 0 35px rgba(0, 191, 255, 0.5);
+}
+
+.title {
+  font-size: 1.6rem;
+  color: var(--neon-blue);
+  margin-bottom: 0.5rem;
+  text-shadow: var(--glow);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #c0e0ff;
+  margin-bottom: 1rem;
+}
+
+.meta {
+  font-size: 0.95rem;
+  color: #9bd6ff;
+  margin: 0.3rem 0;
+}
+
+.typeBuy {
+  color: var(--neon-green);
+  font-weight: bold;
+  text-shadow: 0 0 8px var(--neon-green);
+}
+
+.typeSell {
+  color: var(--neon-red);
+  font-weight: bold;
+  text-shadow: 0 0 8px var(--neon-red);
+}

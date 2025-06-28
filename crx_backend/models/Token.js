@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
-const { type } = require("os");
 
-const TokenSchema = new mongoose.Schema({
-    totalburn: { type: Number},
-    totalmint: {type: Number}
-})
+const tokenSchema = new mongoose.Schema(
+  {
+    totalMinted: Number,
+    totalBurned: Number,
+  },
+  { timestamps: true }
+);
 
-module.export = mongoose.model("token", TokenSchema);
+module.exports = mongoose.models.Token || mongoose.model("Token", tokenSchema);

@@ -6,7 +6,7 @@ import Profile from "../../../components/Profile";
 import WalletConnect from "../../../components/ConnectWalletButton";
 import TransactionHistory from "../../../components/TransactionHistory";
 import BalanceChecker from "../../../components/BalanceChecker";
-import styles from "../../../styles/Dashboarduser.module.css";
+import styles from "../../../styles/Dashboard.module.css";
 
 const UserDashboard: React.FC = () => {
   const router = useRouter();
@@ -53,15 +53,15 @@ const UserDashboard: React.FC = () => {
           <h2 className={styles.logo}>CRX 🌱</h2>
         </div>
         <div className={styles.navRight}>
-          {/* <button onClick={() => scrollToSection(profileRef)} className={styles.navButton}>
+          <button onClick={() => router.push("/dashboard/user")} className={styles.navButton}>
             Profile
           </button>
-          <button onClick={() => scrollToSection(balanceRef)} className={styles.navButton}>
-            Balance
+          <button onClick={() => router.push("/new_project")} className={styles.navButton}>
+            New Project
           </button>
-          <button onClick={() => scrollToSection(historyRef)} className={styles.navButton}>
-            History
-          </button> */}
+          <button onClick={() => router.push("/walletfunction")} className={styles.navButton}>
+            wallet functions
+          </button>
           <button onClick={() => router.push("/community")} className={styles.navButton}>
             Community Page
           </button>

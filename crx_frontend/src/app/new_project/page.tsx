@@ -4,7 +4,7 @@ import CreateRequest from "../../components/CreateRequest"
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import WalletConnect from "../../components/ConnectWalletButton";
-import styles from "../../../styles/Dashboarduser.module.css";
+import styles from "../../styles/Dashboard.module.css";
 
 
 const New_project: React.FC = () => {
@@ -32,14 +32,14 @@ const burnRef = useRef<HTMLDivElement>(null);
           <h2 className={styles.logo}>CRX 🌱</h2>
         </div>
         <div className={styles.navRight}>
-          {/* <button onClick={() => scrollToSection(requestRef)} className={styles.navButton}>
-            Submit Request
+         <button onClick={() => router.push("/dashboard/user")} className={styles.navButton}>
+            Profile
           </button>
-          <button onClick={() => scrollToSection(burnRef)} className={styles.navButton}>
-            Burn Token
-          </button> */}
-          <button onClick={() => router.push("/user")} className={styles.navButton}>
-            Dashboard
+          <button onClick={() => router.push("/new_project")} className={styles.navButton}>
+            New Project
+          </button>
+          <button onClick={() => router.push("/walletfunction")} className={styles.navButton}>
+            wallet functions
           </button>
           <button onClick={() => router.push("/community")} className={styles.navButton}>
             Community Page
@@ -47,7 +47,6 @@ const burnRef = useRef<HTMLDivElement>(null);
           <button onClick={() => router.push("/ai")} className={styles.navButton}>
             AI prediction
           </button>
-
           <div className={styles.walletButton}>
             <WalletConnect />
           </div>

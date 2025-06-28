@@ -1,0 +1,73 @@
+.dashboardContainer {
+  background-color: #000;
+  min-height: 100vh;
+  color: #f0f0f0;
+  font-family: "Segoe UI", sans-serif;
+  padding-bottom: 4rem;
+}
+
+/* ───── NAVBAR ───── */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #222;
+  box-shadow: 0 2px 6px rgba(0, 191, 255, 0.1);
+}
+
+.navLeft .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00bfff;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.navButton {
+  background-color: #00bfff;
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: #00d4ff;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.8), 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.walletButton {
+  margin-left: 1rem;
+}
+
+/* ───── PAGE TITLE ───── */
+.title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 2rem 0 1rem;
+  color: #00bfff;
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+}
+
+/* ───── SECTIONS ───── */
+.section {
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.1);
+}
