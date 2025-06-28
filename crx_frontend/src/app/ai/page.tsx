@@ -136,6 +136,15 @@ export default function AIPredictor() {
             <option value="reforestation">Reforestation</option>
             <option value="methane_capture">Methane Capture</option>
             <option value="electric_mobility">Electric Mobility</option>
+            <option value="biochar_production">Biochar Production</option>
+          <option value="wetland_restoration">Wetland Restoration</option>
+          <option value="carbon_sequestration">Carbon Sequestration</option>
+          <option value="geothermal_energy">Geothermal Energy</option>
+          <option value="green_building">Green Building</option>
+          <option value="sustainable_agriculture">Sustainable Agriculture</option>
+          <option value="wind_energy">Wind Energy</option>
+          <option value="afforestation">Afforestation</option>
+          <option value="solar_power">Solar Power</option>
           </select>
           <button
             type="submit"

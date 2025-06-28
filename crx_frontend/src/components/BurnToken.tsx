@@ -83,7 +83,7 @@ const BurnToken: React.FC = () => {
           onClick={handleRequestFaucet}
           className={styles.faucetButton || styles.button}
         >
-          💧 Request Sepolia ETH
+          Submit request form for project after burn    
         </button>
       )}
     </div>

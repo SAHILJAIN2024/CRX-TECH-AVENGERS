@@ -57,12 +57,12 @@ export default function LoginPage() {
             </button>
           ) : (
             <>
+            <strong style={{ color: "#FFFFFF" }}>
             <p className={styles.connectedWallet}>
               Connected Wallet:{" "}
-              <strong>
                 {address.slice(0, 6)}...{address.slice(-4)}
-              </strong>
             </p>
+            </strong>
             </>
           )}
 

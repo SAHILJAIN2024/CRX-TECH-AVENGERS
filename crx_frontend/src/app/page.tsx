@@ -24,6 +24,7 @@ export default function Home() {
       {/* Foreground Content */}
       <div className={styles.container}>
         <h1 className={styles.title}>🌱 Welcome to the CRX Platform</h1>
+        <h4 className={styles.subtitle1}> #INDIA'S FIRST STEP TOWARDS IT'S OWN CARBON CREDIT MARKET</h4>
         <p className={styles.subtitle}>
           Create an account or sign in to access the dashboard.
         </p>

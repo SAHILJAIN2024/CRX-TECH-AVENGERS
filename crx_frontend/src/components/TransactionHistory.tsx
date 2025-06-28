@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import styles from "../styles/TransactionHistory.module.css";
 
 interface Transaction {
   _id: string;
@@ -55,8 +56,8 @@ export default function TransactionHistory() {
   }, []);
 
   return (
-    <div style={{ background: "#f0fdf4", padding: "20px", borderRadius: "12px", marginTop: "20px" }}>
-      <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>📄 Transaction History</h2>
+    <div className={styles.container}>
+      <h2 className={styles.heading}>📄 Transaction History</h2>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
       {loading ? (
@@ -64,21 +65,17 @@ export default function TransactionHistory() {
       ) : transactions.length === 0 ? (
         <p>No transactions found.</p>
       ) : (
-        <ul style={{ listStyle: "none", padding: 0 }}>
+        <ul className={styles.list}>
           {transactions.map((tx) => (
-            <li
-              key={tx._id}
-              style={{
-                marginBottom: "10px",
-                padding: "10px",
-                border: "1px solid #ccc",
-                borderRadius: "8px",
-              }}
-            >
-              <p><strong>From:</strong> {tx.from}</p>
-              <p><strong>To:</strong> {tx.to}</p>
-              <p><strong>Amount:</strong> {tx.amount} CRX</p>
-              <p><strong>Date:</strong> {new Date(tx.createdAt).toLocaleString()}</p>
+            <li key={tx._id} className={styles.item}>
+              <div>
+                <p className={styles.type}><strong>From:</strong> {tx.from}</p>
+                <p className={styles.type}><strong>To:</strong> {tx.to}</p>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <p className={styles.amount}><strong>Amount:</strong> {tx.amount} CRX</p>
+                <p className={styles.date}><strong>Date:</strong> {new Date(tx.createdAt).toLocaleString()}</p>
+              </div>
             </li>
           ))}
         </ul>
