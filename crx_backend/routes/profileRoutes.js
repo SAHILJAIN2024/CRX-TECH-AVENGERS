@@ -24,15 +24,16 @@ router.get("/:wallet", async (req, res) => {
 router.put("/:wallet", async (req, res) => {
   try {
     const { wallet } = req.params;
-    const { name, email } = req.body;
+    const { name, email, blog } = req.body;
 
     let profile = await Profile.findOne({ wallet });
 
     if (!profile) {
-      profile = new Profile({ wallet, name, email });
+      profile = new Profile({ wallet, name, email, blog });
     } else {
       profile.name = name;
       profile.email = email;
+      profile.blog = blog;
     }
 
     await profile.save();

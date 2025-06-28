@@ -9,6 +9,7 @@ export default function Profile() {
     name: "",
     email: "",
     wallet: "",
+    blog: "",
     carbonCredits: 0,
   });
   const [editing, setEditing] = useState(false);
@@ -28,7 +29,6 @@ export default function Profile() {
       const wallet = await fetchWallet();
       if (!wallet) return;
 
-      // Fetch existing profile
       fetch(`http://localhost:5000/api/profile/${wallet}`)
         .then((res) => res.json())
         .then((data) => {
@@ -37,18 +37,18 @@ export default function Profile() {
               name: data.name || "",
               email: data.email || "",
               wallet: data.wallet,
+              blog: data.blog || "",
               carbonCredits: data.carbonCredits || 0,
             });
           } else {
-            // If profile doesn't exist, create one
             const newProfile = {
-              name: `User ${wallet.slice(0, 6)}...`, // Simple placeholder name (can be updated later)
-              email: `${wallet}@example.com`, // Default email
+              name: `User ${wallet.slice(0, 6)}...`,
+              email: `${wallet}@example.com`,
               wallet,
+              blog: "",
               carbonCredits: 0,
             };
 
-            // Create the profile on the backend
             fetch(`http://localhost:5000/api/profile/${wallet}`, {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
@@ -65,9 +65,11 @@ export default function Profile() {
     })();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setProfile({ ...profile, [e.target.name]: e.target.value });
-  };
+  const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+) => {
+  setProfile({ ...profile, [e.target.name]: e.target.value });
+};
 
   const handleSave = async () => {
     setStatus("");
@@ -91,24 +93,41 @@ export default function Profile() {
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>👤 Profile</h2>
-      <label>Name</label>
-      <input name="name" value={profile.name} onChange={handleChange} disabled={!editing} className={styles.input} />
 
-      <label>Email</label>
-      <input name="email" value={profile.email} onChange={handleChange} disabled={!editing} className={styles.input} />
+      <div className={styles.outerGrid}>
+        <div className={styles.profileBox}>
+          <label>Name</label>
+          <input name="name" value={profile.name} onChange={handleChange} disabled={!editing} className={styles.input} />
 
-      <label>Wallet</label>
-      <input value={profile.wallet} disabled className={styles.input} />
+          <label>Email</label>
+          <input name="email" value={profile.email} onChange={handleChange} disabled={!editing} className={styles.input} />
 
-      <div className={styles.buttons}>
-        {editing ? (
-          <button onClick={handleSave} className={styles.button}>Save</button>
-        ) : (
-          <button onClick={() => setEditing(true)} className={styles.button}>Edit</button>
-        )}
+          <label>Wallet</label>
+          <input value={profile.wallet} disabled className={styles.input} />
+
+          <div className={styles.buttons}>
+            {editing ? (
+              <button onClick={handleSave} className={styles.button}>Save</button>
+            ) : (
+              <button onClick={() => setEditing(true)} className={styles.button}>Edit</button>
+            )}
+          </div>
+
+          {status && <p className={styles.status}>{status}</p>}
+        </div>
+
+        <div className={styles.blogBox}>
+          <h3 className={styles.heading}>📝 My Story</h3>
+          <textarea
+            name="blog"
+            value={profile.blog}
+            onChange={handleChange}
+            disabled={!editing}
+            className={styles.input}
+            placeholder="Enter blog link or description"
+          />
+        </div>
       </div>
-
-      {status && <p className={styles.status}>{status}</p>}
     </div>
   );
 }

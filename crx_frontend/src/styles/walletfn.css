@@ -1,56 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+:root {
+  --neon-blue: #00bfff;
+  --glow-soft: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+/* ───── VIDEO BACKGROUND ───── */
+.videoBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.7;
+  filter: brightness(3) contrast(1.1) saturate(1.2);
+  pointer-events: none;
+}
+/* ───── MAIN CONTAINER ───── */
 .dashboardContainer {
   background-color: #000;
   min-height: 100vh;
   color: #f0f0f0;
   font-family: "Segoe UI", sans-serif;
   padding-bottom: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* ───── NAVBAR ───── */
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #111;
+  background-color: #0f0f0f;
   padding: 1rem 2rem;
-  border-bottom: 1px solid #222;
-  box-shadow: 0 2px 6px rgba(0, 191, 255, 0.1);
+  border-bottom: 1px solid var(--neon-blue);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.1);
 }
 
-.navLeft .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #00bfff;
-  text-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--neon-blue);
+  text-shadow: var(--glow-soft);
 }
 
 .navRight {
   display: flex;
-  align-items: center;
-  gap: 1rem;
   flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
 
 .navButton {
-  background-color: #00bfff;
-  color: #000;
-  border: none;
+  background-color: transparent;
+  border: 0;
+  color: #ffffff;
   padding: 0.5rem 1rem;
-  font-weight: bold;
-  font-size: 0.95rem;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
+  font-weight: 600;
   transition: all 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .navButton:hover {
-  background-color: #00d4ff;
-  box-shadow: 0 0 12px rgba(0, 212, 255, 0.8), 0 0 20px rgba(0, 212, 255, 0.5);
+  background-color: var(--neon-blue);
+  color: #000;
+  box-shadow: var(--glow-soft);
 }
 
 .walletButton {
-  margin-left: 1rem;
+  margin-left: 3rem;
 }
 
 /* ───── PAGE TITLE ───── */
@@ -58,7 +85,7 @@
   text-align: center;
   font-size: 2.2rem;
   margin: 2rem 0 1rem;
-  color: #00bfff;
+  color: var(--neon-blue);
   text-shadow: 0 0 8px rgba(0, 191, 255, 0.6);
 }
 
@@ -67,7 +94,24 @@
   padding: 2rem;
   max-width: 700px;
   margin: 0 auto;
-  background-color: #1a1a1a;
+  background-color: rgba(26, 26, 26, 0.85);
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 191, 255, 0.1);
+}
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 768px) {
+  .navRight {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
 }

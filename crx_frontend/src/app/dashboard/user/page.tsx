@@ -4,8 +4,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Profile from "../../../components/Profile";
 import WalletConnect from "../../../components/ConnectWalletButton";
-import TransactionHistory from "../../../components/TransactionHistory";
-import BalanceChecker from "../../../components/BalanceChecker";
 import styles from "../../../styles/Dashboard.module.css";
 
 const UserDashboard: React.FC = () => {
@@ -13,9 +11,6 @@ const UserDashboard: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const profileRef = useRef<HTMLDivElement>(null);
-  const balanceRef = useRef<HTMLDivElement>(null);
-  const historyRef = useRef<HTMLDivElement>(null);
-  
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -48,6 +43,19 @@ const UserDashboard: React.FC = () => {
 
   return (
     <main className={styles.dashboardContainer}>
+      {/* Background Video */}
+      <video
+        className={styles.videoBackground}
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="/Background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.navLeft}>
           <h2 className={styles.logo}>CRX 🌱</h2>
@@ -60,13 +68,13 @@ const UserDashboard: React.FC = () => {
             New Project
           </button>
           <button onClick={() => router.push("/walletfunction")} className={styles.navButton}>
-            wallet functions
+            Wallet Functions
           </button>
           <button onClick={() => router.push("/community")} className={styles.navButton}>
             Community Page
           </button>
           <button onClick={() => router.push("/ai")} className={styles.navButton}>
-            AI prediction
+            AI Prediction
           </button>
           <button onClick={handleLogout} className={styles.navButton}>
             Logout
@@ -76,16 +84,14 @@ const UserDashboard: React.FC = () => {
           </div>
         </div>
       </nav>
+
+      {/* Page Content */}
       <h1 className={styles.title}>User Dashboard</h1>
+
       <section ref={profileRef}>
         <Profile />
       </section>
-        <section ref={balanceRef}>
-          <BalanceChecker />
-        </section>
-        <section ref={historyRef}>
-          <TransactionHistory />
-        </section>
+     
     </main>
   );
 };

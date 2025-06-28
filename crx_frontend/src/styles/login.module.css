@@ -15,12 +15,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
-  object-fit: cover;
   z-index: -1;
-  opacity: 0.8; /* Dim the video to ensure form readability */
-  filter: brightness(0.8);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3);
 }
 
 /* This ensures the login box is clearly visible and overlays video */
@@ -35,14 +34,17 @@
 }
 
 .form {
-  background-color: rgba(0, 0, 0, 0.292);
-  padding: 6rem 5rem;
+  background-color: rgba(0, 0, 0, 0.30);
+  padding: 2rem 3rem;
   border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 119, 255, 0.2);
   width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   animation: slideIn 1s ease-out;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Optional smoother fade-in animation */
@@ -59,11 +61,11 @@
 
 .title {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   color: rgb(255, 255, 255);
   margin-bottom: 1rem;
-  text-shadow: 0 0 8px #00bfff;
+  text-shadow: 0 0 7px #ffffff;
   font-family: 'Orbitron', sans-serif;
 }
 

@@ -56,7 +56,7 @@ const CreateRequest: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>📨 Submit Token Request</h2>
+      <h1 className={styles.heading}>📨 Submit Token Request</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <label className={styles.label}>
           Type:

@@ -1,7 +1,8 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
-import { ethers } from "ethers";
 import styles from "../styles/TransactionHistory.module.css";
+import { ethers } from "ethers";
 
 interface Transaction {
   _id: string;
@@ -56,26 +57,22 @@ export default function TransactionHistory() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.heading}>📄 Transaction History</h2>
+    <div className={styles.transactionHistoryContainer}>
+      <h2 className={styles.title}>📄 Transaction History</h2>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className={styles.error}>{error}</p>}
       {loading ? (
-        <p>Loading transactions...</p>
+        <p className={styles.loading}>Loading transactions...</p>
       ) : transactions.length === 0 ? (
-        <p>No transactions found.</p>
+        <p className={styles.empty}>No transactions found.</p>
       ) : (
-        <ul className={styles.list}>
+        <ul className={styles.transactionList}>
           {transactions.map((tx) => (
-            <li key={tx._id} className={styles.item}>
-              <div>
-                <p className={styles.type}><strong>From:</strong> {tx.from}</p>
-                <p className={styles.type}><strong>To:</strong> {tx.to}</p>
-              </div>
-              <div style={{ textAlign: "right" }}>
-                <p className={styles.amount}><strong>Amount:</strong> {tx.amount} CRX</p>
-                <p className={styles.date}><strong>Date:</strong> {new Date(tx.createdAt).toLocaleString()}</p>
-              </div>
+            <li key={tx._id} className={styles.transactionItem}>
+              <p><strong>From:</strong> {tx.from}</p>
+              <p><strong>To:</strong> {tx.to}</p>
+              <p><strong>Amount:</strong> {tx.amount} CRX</p>
+              <p><strong>Date:</strong> {new Date(tx.createdAt).toLocaleString()}</p>
             </li>
           ))}
         </ul>

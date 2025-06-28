@@ -18,7 +18,19 @@ body {
   overflow-x: hidden;
 }
 
-/* NAVBAR */
+.videoBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.7;
+  filter: brightness(3) contrast(1.1) saturate(1.2);
+  pointer-events: none;
+}
+
 .navbar {
   width: 100%;
   display: flex;
@@ -38,7 +50,6 @@ body {
   font-weight: 800;
   color: var(--neon-blue);
   text-shadow: var(--glow-soft);
-  white-space: nowrap;
 }
 
 .navRight {
@@ -50,7 +61,7 @@ body {
 
 .navButton {
   background-color: transparent;
-  border: 0px solid var(--neon-blue);
+  border: 0;
   color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -70,11 +81,9 @@ body {
   padding-left: 5rem;
 }
 
-/* DASHBOARD CONTAINER */
 .dashboardContainer {
   min-height: 100vh;
   padding: 3rem 2rem;
-  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
   background-color: #000000;
   background-size: auto;
   background-repeat: repeat;
@@ -82,6 +91,8 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 4rem;
+  position: relative;
+  z-index: 2;
 }
 
 .title {
@@ -94,10 +105,20 @@ body {
   animation: fadeInDown 1.2s ease-out;
 }
 
-/* COMPONENT SECTION CLASS */
-.section {
+.sectionRow {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
+}
+
+.section {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 2rem;
   border-radius: 1rem;
@@ -106,7 +127,6 @@ body {
   animation: fadeIn 1s ease-in;
 }
 
-/* ANIMATIONS */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -129,7 +149,6 @@ body {
   }
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;

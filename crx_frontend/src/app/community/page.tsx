@@ -64,6 +64,11 @@ export default function CommunityPage() {
 
   return (
     <div className={styles.pageWrapper}>
+      {/* Video Background */}
+      <video className={styles.videoBackground} autoPlay loop muted playsInline>
+        <source src="/Background.mp4" type="video/mp4" />
+      </video>
+
       <nav className={styles.navbar}>
         <div className={styles.navLeft}>
           <h2 className={styles.logo}>CRX 🌱</h2>

@@ -175,15 +175,6 @@
   letter-spacing: 0.2px;
   font-weight: 300;
 }
-.subtitle1 {
-  font-size: 1.2rem;
-  color: #00aaff;
-  text-align: center;
-  margin: 1rem 0;
-  text-shadow: 0 0 10px #00aaffcc;
-  letter-spacing: 0.2px;
-  font-weight: 300;
-}
 
 /* ====== Buttons ====== */
 .buttonGroup {

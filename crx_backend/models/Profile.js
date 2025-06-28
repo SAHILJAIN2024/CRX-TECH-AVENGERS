@@ -7,7 +7,8 @@ const ProfileSchema = new mongoose.Schema({
   email: String,
   organization: String,
   country: String,
-  specialization: String
+  specialization: String,
+  blog: String
 });
 
 module.exports = mongoose.models.Profile || mongoose.model('Profile', ProfileSchema);
