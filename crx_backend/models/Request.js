@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const RequestSchema = new mongoose.Schema(
   {
-    wallet: { type: String, required: true },
+     wallet: { type: String, required: true },
     reason: { type: String },
     amount: { type: Number, required: true },
     status: { type: String, default: "pending" },

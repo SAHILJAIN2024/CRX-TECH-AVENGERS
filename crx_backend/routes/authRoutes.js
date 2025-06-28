@@ -14,23 +14,18 @@ router.post("/login", async (req, res) => {
     let user = await User.findOne({ wallet });
 
     if (!user) {
-      // Auto-assign role based on email domain
-      const role = email.endsWith("@authority.com") ? "authority" : "user";
-
-      user = new User({ wallet, email, role });
-      await user.save();
-    } else {
-      if (user.email !== email) {
-        user.email = email;
-        await user.save();
-      }
+      return res.status(404).json({ message: "User not found" });
     }
-
+    else if (user.email !== email) {
+      return res.status(400).json({ message: "Email does not match wallet, try again" });
+    } 
+    else{
     return res.status(200).json({
       message: "Login successful",
       role: user.role,
       wallet: user.wallet,
     });
+  }
   } catch (err) {
     console.error("Login error:", err);
     res.status(500).json({ message: "Server error" });

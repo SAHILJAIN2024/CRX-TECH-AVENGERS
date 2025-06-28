@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useWallet } from "../../components/WalletContext";
-import styles from "../../styles/Auth.module.css";
+import styles from "../../styles/login.module.css";
 
 export default function LoginPage() {
   const { address, connectWallet } = useWallet();
@@ -41,35 +41,46 @@ export default function LoginPage() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.formBox}>
-        <h1 className={styles.title}>\uD83D\uDD10 Login</h1>
+    <div className={styles.pageWrapper}>
+      <video autoPlay muted loop playsInline className={styles.videoBackground}>
+        <source src="/Intro.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-        {!address ? (
-          <button onClick={connectWallet} className={styles.button}>
-            Connect Wallet
+      <div className={styles.container}>
+        <div className={styles.form}>
+          <h1 className={styles.title}>🔐 Login</h1>
+
+          {!address ? (
+            <button onClick={connectWallet} className={styles.button}>
+              Connect Wallet
+            </button>
+          ) : (
+            <>
+            <p className={styles.connectedWallet}>
+              Connected Wallet:{" "}
+              <strong>
+                {address.slice(0, 6)}...{address.slice(-4)}
+              </strong>
+            </p>
+            </>
+          )}
+
+          <input
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={styles.input}
+          />
+
+          <button onClick={handleLogin} className={styles.button}>
+            Login
           </button>
-        ) : (
-          <p className={styles.connectedWallet}>
-            Connected Wallet: <strong>{address.slice(0, 6)}...{address.slice(-4)}</strong>
-          </p>
-        )}
-
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={styles.input}
-        />
-
-        <button onClick={handleLogin} className={styles.button}>
-          Login
-        </button>
+        </div>
       </div>
     </div>
   );
 }
 
 export const dynamic = "force-dynamic";
-
